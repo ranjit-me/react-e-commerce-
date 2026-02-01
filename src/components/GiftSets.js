@@ -1,7 +1,7 @@
 import React from 'react'
 import "../styles/GiftSets.css";
 import { store } from '../productsStore/Store';
-import HoverImage from 'react-hover-image/build';
+
 import { Link } from 'react-router-dom';
 const GiftSets = () => {
     return (
@@ -37,7 +37,13 @@ const GiftSets = () => {
                             <Link to={`/${item.id}`} key={item.id}>
 
                                 <div key={item.id} className="giftIndivitual">
-                                    <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="GiftImage w-48 rounded-lg mb-6" />
+                                    <img
+                                        src={item.primaryImage}
+                                        onMouseEnter={e => e.currentTarget.src = item.hoverImg}
+                                        onMouseLeave={e => e.currentTarget.src = item.primaryImage}
+                                        alt={item.name}
+                                        className="GiftImage w-48 rounded-lg mb-6"
+                                    />
                                     <p className='giftName text-center text-md mb-2'> {item.name} </p>
                                     <p className='giftPrice font-normal text-center' >${item.price} </p>
                                 </div>

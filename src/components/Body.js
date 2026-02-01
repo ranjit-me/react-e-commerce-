@@ -4,7 +4,7 @@ import React from 'react'
 import "../styles/Body.css";
 import { useState } from 'react';
 import { store } from '../productsStore/Store';
-import HoverImage from "react-hover-image/build"
+
 import { Link } from 'react-router-dom';
 
 const Body = () => {
@@ -129,7 +129,13 @@ const Body = () => {
                                 <Link to={`/${item.id}`} key={item.id}>
 
                                     <div key={item.id} className="bodyTypeIndivitual">
-                                        <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="rounded-xl  bodyTypeImage" />
+                                        <img
+                                            src={item.primaryImage}
+                                            onMouseEnter={e => e.currentTarget.src = item.hoverImg}
+                                            onMouseLeave={e => e.currentTarget.src = item.primaryImage}
+                                            alt={item.name}
+                                            className="rounded-xl  bodyTypeImage"
+                                        />
                                         <p className=' text-center fs bodyTypeName'> {item.name} </p>
                                     </div>
 
@@ -183,7 +189,13 @@ const Body = () => {
                                     <Link to={`/${item.id}`} key={item.id}>
 
                                         <div key={item.id} className="TravelIndivitual">
-                                            <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className=" rounded-xl w-40" />
+                                            <img
+                                                src={item.primaryImage}
+                                                onMouseEnter={e => e.currentTarget.src = item.hoverImg}
+                                                onMouseLeave={e => e.currentTarget.src = item.primaryImage}
+                                                alt={item.name}
+                                                className=" rounded-xl w-40"
+                                            />
                                             <p className=' font-semibold text-base px'> {item.name} </p>
                                             <p className='text-base font-normal text-center'> ${item.price} </p>
                                         </div>
@@ -220,7 +232,13 @@ const Body = () => {
                                 <Link to={`/${item.id}`} key={item.id}>
 
                                     <div className='newIndivitual'>
-                                        <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className=" rounded-xl w-40" />
+                                        <img
+                                            src={item.primaryImage}
+                                            onMouseEnter={e => e.currentTarget.src = item.hoverImg}
+                                            onMouseLeave={e => e.currentTarget.src = item.primaryImage}
+                                            alt={item.name}
+                                            className=" rounded-xl w-40"
+                                        />
                                         <p className='font-semibold text-center text-base px'> {item.name} </p>
                                         <p className='text-base font-normal text-center'> ${item.price} </p>
                                     </div>
